@@ -11,7 +11,8 @@
 script = ExtResource("1_dw26h")
 
 [node name="SurpriseSpikes" parent="." unique_id=1558483648 instance=ExtResource("2_76388")]
-position = Vector2(-544, 415)
+position = Vector2(-529, 407)
+trigger_offset = Vector2(-583, 385)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=664436382]
 
@@ -19,7 +20,7 @@ position = Vector2(-544, 415)
 position = Vector2(-830, 443)
 
 [node name="TrollPlatform" parent="." unique_id=312930643 instance=ExtResource("3_dw26h")]
-position = Vector2(-694, 445)
+position = Vector2(-693, 444)
 
 [node name="Normal_platform" parent="." unique_id=435813661 instance=ExtResource("2_odhdn")]
 position = Vector2(-872, 508)

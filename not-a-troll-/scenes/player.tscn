@@ -1,17 +1,53 @@
 [gd_scene format=3 uid="uid://jvrg8pf6t5rd"]
 
 [ext_resource type="Script" uid="uid://cxrb3mei8fjio" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://dft76a1dxpngt" path="res://asserts/player/idle/Screenshot 2026-10-29 212410-Photoroom.png" id="2_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://kyk8tjrndwkg" path="res://asserts/player/idle/Screenshot 2026-10-29 212424-Photoroom.png" id="3_fjrip"]
+[ext_resource type="Texture2D" uid="uid://cidh1ktmyriyr" path="res://asserts/player/run/Screenshot 2026-10-29 212542-Photoroom.png" id="4_smehm"]
+[ext_resource type="Texture2D" uid="uid://b4xm2nmyt5mn0" path="res://asserts/player/run/Screenshot 2026-10-29 212550-Photoroom.png" id="5_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://cu8jamexhgbp" path="res://asserts/player/run/Screenshot 2026-10-29 212630-Photoroom.png" id="6_y4r1p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k3d4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tuyoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fjrip")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_smehm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ur7pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y4r1p")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 8.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nc0x6"]
+size = Vector2(18, 37)
 
 [node name="Player" type="CharacterBody2D" unique_id=219096675]
 script = ExtResource("1_3vyb7")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1184284898]
-position = Vector2(15.864659, 15.370368)
-scale = Vector2(0.3007518, 0.37037033)
-polygon = PackedVector2Array(-86, -67.91936, -86, -14.5, -19.5, -14.5, -19.5, -68.5)
-uv = PackedVector2Array(-86, -66, -86, -14.5, -19.5, -14.5, -19.5, -68.5)
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=148411302]
+position = Vector2(-1, -12.999992)
+scale = Vector2(0.16011235, 0.15929209)
+sprite_frames = SubResource("SpriteFrames_k3d4u")
+animation = &"idle"
+frame_progress = 0.42804086
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1715976417]
+position = Vector2(1, -14)
 shape = SubResource("RectangleShape2D_nc0x6")

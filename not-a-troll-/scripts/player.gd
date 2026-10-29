@@ -1,44 +1,48 @@
 
 extends CharacterBody2D
 
-const SPEED = 260.0
-const JUMP_VELOCITY = -420.0
+@export var speed: float = 250.0
+@export var jump_velocity: float = -400.0
 
-var gravity = float(
-	ProjectSettings.get_setting("physics/2d/default_gravity")
-)
+var is_dead: bool = false
 
-var is_dead = false
-
-
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_dead:
 		return
 
-	# Apply gravity while the player is in the air.
+	# Gravity
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity += get_gravity() * _delta
 
-	# Jump using Space, Up Arrow, or W.
+	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = jump_velocity
 
-	# Move left and right using the keyboard.
-	var direction = Input.get_axis("move_left", "move_right")
-	velocity.x = direction * SPEED
+	# Horizontal movement
+	var direction := Input.get_axis("move_left", "move_right")
+	velocity.x = direction * speed
+
+	# Flip the character when moving left or right
+	if direction != 0:
+		$Visual.flip_h = direction < 0
 
 	move_and_slide()
 
+	update_animation()
 
-func die() -> void:
-	if is_dead:
+
+func update_animation() -> void:
+	if not is_on_floor():
 		return
 
+	if absf(velocity.x) > 1.0:
+		$Visual.play("run")
+	else:
+		$Visual.play("idle")
+
+
+func die() -> void:
 	is_dead = true
 	velocity = Vector2.ZERO
-
-	# Brief pause before restarting the level.
-	await get_tree().create_timer(0.4).timeout
-	get_tree().change_scene_to_file(
-        "res://scenes/GameOver.tscn"
-	)
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://scenes/GameOver.tscn")

@@ -23,5 +23,5 @@ shape = SubResource("RectangleShape2D_jcvkx")
 [node name="Trigger" type="Area2D" parent="." unique_id=1027263647]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger" unique_id=1702939050]
-position = Vector2(-43, -2)
+position = Vector2(-25, -2)
 shape = SubResource("RectangleShape2D_46yf8")
