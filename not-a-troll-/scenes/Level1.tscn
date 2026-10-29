@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ucdg2dl2rfsy"]
+
+[ext_resource type="PackedScene" uid="uid://jvrg8pf6t5rd" path="res://scenes/player.tscn" id="1_6ovph"]
+[ext_resource type="Script" uid="uid://fx1cqe7ml5ql" path="res://scripts/level_1.gd" id="1_dw26h"]
+[ext_resource type="PackedScene" uid="uid://dhy8bq74ucb0k" path="res://scenes/surprise_spikes.tscn" id="2_76388"]
+[ext_resource type="PackedScene" uid="uid://bdny4ia85ra03" path="res://scenes/normal_platform.tscn" id="2_odhdn"]
+[ext_resource type="PackedScene" uid="uid://by42o4srmfhb" path="res://scenes/TrollPlatform.tscn" id="3_dw26h"]
+[ext_resource type="PackedScene" uid="uid://bxq7njcwpnec8" path="res://scenes/fake_exit.tscn" id="5_lrl65"]
+
+[node name="Node2D" type="Node2D" unique_id=1809989078]
+script = ExtResource("1_dw26h")
+
+[node name="SurpriseSpikes" parent="." unique_id=1558483648 instance=ExtResource("2_76388")]
+position = Vector2(-544, 415)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=664436382]
+
+[node name="Player" parent="." unique_id=219096675 instance=ExtResource("1_6ovph")]
+position = Vector2(-830, 443)
+
+[node name="TrollPlatform" parent="." unique_id=312930643 instance=ExtResource("3_dw26h")]
+position = Vector2(-694, 445)
+
+[node name="Normal_platform" parent="." unique_id=435813661 instance=ExtResource("2_odhdn")]
+position = Vector2(-872, 508)
+
+[node name="Normal_platform2" parent="." unique_id=1966139404 instance=ExtResource("2_odhdn")]
+position = Vector2(-808, 508)
+
+[node name="Normal_platform3" parent="." unique_id=877851284 instance=ExtResource("2_odhdn")]
+position = Vector2(-630, 445)
+
+[node name="Normal_platform4" parent="." unique_id=994644593 instance=ExtResource("2_odhdn")]
+position = Vector2(-567, 445)
+
+[node name="Normal_platform5" parent="." unique_id=1931767295 instance=ExtResource("2_odhdn")]
+position = Vector2(-502, 445)
+
+[node name="Button" type="Button" parent="." unique_id=317818862]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="FakeExit" parent="." unique_id=204765886 instance=ExtResource("5_lrl65")]
+position = Vector2(-488, 395)
